@@ -1,0 +1,51 @@
+curl -X POST -H "Content-Type: application/json" -d '{
+  "whitelisted_domains": [
+    "https://facebook.com/"
+    ],
+    "greeting": [
+    {
+        "locale": "default",
+        "text": "Welcome to Toiec_ChatBot {{user_full_name}}! Click Get Started to enjoy our sample automated messaging experience."
+    }
+    ],
+    "get_started":{
+    "payload":"start"
+    },
+    "persistent_menu": [
+        {
+            "locale": "default",
+            "composer_input_disabled": false,
+            "call_to_actions": [
+                {
+                    "type": "postback",
+                    "title": "Choose your test ...",
+                    "payload": "choose-test"
+                }
+            ]
+        }
+    ]
+}' "https://graph.facebook.com/v3.3/me/messenger_profile?access_token=EAAg5dtZBs26ABAPxRipEQ9DCFhfnUsmnZAYyPuWVJY2vdtvy6syV47N6lqsEAflaRJLIFkvBnUvNoo78G3YFPOPrJp5cna11CTj3f8lQ98seXmUzdbc5VoIDkHW2JqobA3QNEtWZA9yQCHqnMfka1YchIdsLBR4uLZA1L0Yb24cKbyuT1Nmp"
+
+
+curl -X POST -H "Content-Type: application/json" -d '{
+  "recipient":{
+    "id":"2208704519205313"
+  },
+  "messaging_type": "RESPONSE",
+  "message":{
+    "text": "Pick a color:",
+    "quick_replies":[
+      {
+        "content_type":"text",
+        "title":"Red",
+        "payload":"<POSTBACK_PAYLOAD>",
+        "image_url":"http://example.com/img/red.png"
+      },{
+        "content_type":"text",
+        "title":"Green",
+        "payload":"<POSTBACK_PAYLOAD>",
+        "image_url":"http://example.com/img/green.png"
+      }
+    ]
+  }
+}' "https://graph.facebook.com/v3.3/me/messages?access_token=EAAg5dtZBs26ABAMNlu3oZA9dQwIgmi7MgftYbzwActtjZCDQ7fFMIVHHZBTRQhiQHrEHELqGOpxb5ZB5lx7ezDQNNSW1lEZAIxWlv3ZCJ9ZBX6nP1bHmVTJtkUy1625nxNlOSdwz5ZBqLdxogbvX13AguiMVNvYMRGTaoDWkghmfFbZClVqyPoGQyE" 
